@@ -1,0 +1,21 @@
+
+{{extend 'layout.html'}}
+        <h1>List Of event in da nang city</h1>
+<h2>{{for i in list:}}
+            <table>
+            <tr>
+                <td>Id of event:</td>
+                <td>Name of event:</td>
+                <td>address:</td>
+                <td>Time of event:</td>
+                 <td>Action:</td>
+            </tr>
+            <tr>
+                <td>{{=i['id']}}</td>
+                <td>{{=i['event_name']}}</td>
+                <td>{{=i['dia_diem']}}</td>
+                <td>{{=i['thoi_gian']}}</td>
+                <td>{{=i['thoi_gian']}}</td></tr>
+        </table>
+{{pass}}{{pass}}{{pass}}{{pass}}</h2>
+{{block sidebar}} {{end}}
