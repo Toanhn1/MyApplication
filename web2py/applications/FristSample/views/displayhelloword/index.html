@@ -1,7 +1,7 @@
 
 {{extend 'layout.html'}}
         <h1>List Of event in da nang city</h1>
-<h2>{{for i in list:}}
+{{for i in list:}}
             <table>
             <tr>
                 <td>Id of event:</td>
@@ -17,5 +17,5 @@
                 <td>{{=i['thoi_gian']}}</td>
                 </tr>
         </table>
-{{pass}}{{pass}}{{pass}}{{pass}}</h2>
+{{pass}}{{pass}}{{pass}}{{pass}}
 {{block sidebar}} {{end}}

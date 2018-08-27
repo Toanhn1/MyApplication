@@ -170,3 +170,17 @@
 127.0.0.1, 2018-08-27 10:58:22, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.023213
 127.0.0.1, 2018-08-27 10:59:39, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.023618
 127.0.0.1, 2018-08-27 11:00:01, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.024239
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/js/modernizr-2.8.3.min.js, HTTP/1.1, 304, 0.000515
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/css/bootstrap.min.css, HTTP/1.1, 304, 0.000869
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/css/calendar.css, HTTP/1.1, 304, 0.001372
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/js/jquery.js, HTTP/1.1, 304, 0.000780
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/js/calendar.js, HTTP/1.1, 304, 0.000296
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/js/web2py.js, HTTP/1.1, 304, 0.000372
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/css/web2py-bootstrap4.css, HTTP/1.1, 304, 0.008033
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/js/bootstrap.bundle.min.js, HTTP/1.1, 304, 0.000951
+127.0.0.1, 2018-08-27 15:57:15, GET, /welcome/static/js/web2py-bootstrap4.js, HTTP/1.1, 304, 0.000930
+127.0.0.1, 2018-08-27 15:57:30, GET, /, HTTP/1.1, 303, 15.018680
+127.0.0.1, 2018-08-27 15:57:30, GET, /welcome/default/index, HTTP/1.1, 200, 0.147494
+127.0.0.1, 2018-08-27 15:57:51, GET, /FristSample/displayhelloword/abc, HTTP/1.1, 404, 0.094803
+127.0.0.1, 2018-08-27 15:57:59, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.034898
+127.0.0.1, 2018-08-27 15:58:33, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.029560
