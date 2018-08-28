@@ -1,9 +1,10 @@
 {{extend 'layout.html'}}
-        <h2>List Of member</h2>
+        <h2>List Of Orders</h2>
 <ul>
     {{for row in list:}}
     <li>
-        {{="%(member_id)s - %(other_information)s - %(gmail)s" % row}}
+        {{="%(order_id)s - %(user_id)s - %(ngay_mua)s- %(name)s- %(event_name)s- %(age)s"
+        "- %(phone)s- %(email)s %(cach_thanh_toan)s" % row}}
     </li>
     {{pass}}
 </ul>

@@ -36,16 +36,50 @@ if not request.env.web2py_runtime_gae:
     #          check_reserved=['all'])
     db = DAL("mysql://root:root@localhost/web2py2")
 
-    #create table members
-    db.define_table('members',
-                    Field('member_id', 'string'),
-                    Field('other_information', 'string'),
-                    Field('gmail', 'string'),
-                    primarykey=['member_id'])
-    #insert data
-    # db.members.insert(member_id='HS001',other_information='Xuat Sac',gmail = 'abc@gmail.com')
-    # db.members.insert(member_id='HS002', other_information='Xuat Sac', gmail='abc@gmail.com')
-    # db.members.insert(member_id='HS003', other_information='Xuat Sac', gmail='abc@gmail.com')
+    # Create table
+    db.define_table('orders',
+                    Field('order_id', 'string',required=True),
+                    Field('user_id', 'string'),
+                    Field('ngay_mua', 'date'),
+                    Field('name', 'string'),
+                    Field('event_name', 'string'),
+                    Field('age', 'integer'),
+                    Field('phone', 'string'),
+                    Field('email', 'string'),
+                    Field('cach_thanh_toan', 'string'),
+                    Field('phuong_thuc_nhan', 'string'),
+                    Field('quan_huyen', 'string'),
+                    primarykey=['order_id'])
+
+    #Create table
+    db.define_table('order_detail',
+                    Field('event_id', 'string',required=True),
+                    Field('user_id', 'string',required=True),
+                    Field('event_name', 'string'),
+                    Field('diadiem_tochuc', 'string'),
+                    Field('thoigian_tochuc', 'datetime'),
+                    Field('quan_huyen_tochuc', 'string'),
+                    primarykey=['event_id','user_id'])
+
+    #insert database
+    # db.orders.insert(order_id='HD002', user_id='KH002', ngay_mua='2018/05/08', name='Nguyen Van B',
+    #                        event_name='Phao Hoa',
+    #                        age=26, phone='01234569856', email='Bnv@gmail.com', cach_thanh_toan='Qua ATM',
+    #                        phuong_thuc_nhan="Truc Tiep", quan_huyen='Hai Chau')
+    # db.orders.insert(order_id='HD001', user_id='KH003', ngay_mua='2018/03/08', name='Nguyen Van C',
+    #                        event_name='Phao Hoa', age=23,
+    #                        phone='01234569456', email='Cnv@gmail.com', cach_thanh_toan='Qua ATM',
+    #                        phuong_thuc_nhan="Truc Tiep", quan_huyen='Lien Chieu')
+    # db.orders.insert(order_id='HD003', user_id='KH004', ngay_mua='2018/02/08', name='Nguyen Van D',
+    #                        event_name='Phao Hoa', age=24,
+    #                        phone='09234569876', email='Dnv@gmail.com', cach_thanh_toan='Qua ATM',
+    #                        phuong_thuc_nhan="Truc Tiep", quan_huyen='Lien Chieu 2')
+    # db.order_detail.insert(event_id="EV001", user_id='KH001', event_name='Phao Hoa 30/4',
+    #                               diadiem_tochuc='Nha Van Hoa Lien Chieu'
+    #                               , thoigian_tochuc='2018/06/07 13:23', quan_huyen_tochuc='Lien Chieu')
+    # db.order_detail.insert(event_id="EV001", user_id='KH002', event_name='Phao Hoa 30/4',
+    #                               diadiem_tochuc='Nha Van Hoa Lien Chieu'
+    #                               , thoigian_tochuc='2018/06/07 13:23', quan_huyen_tochuc='Lien Chieu')
 
 else:
     # ---------------------------------------------------------------------

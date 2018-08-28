@@ -1,5 +1,7 @@
-
 #sample index page
 def index():
-    listMember = db().select(db.members.ALL)
-    return dict(list = listMember)
+    listOrder = get_list_order()
+    return dict(list = listOrder)
+
+def get_list_order():
+    return db().select(db.orders.ALL)
