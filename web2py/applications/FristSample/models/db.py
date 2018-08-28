@@ -30,10 +30,23 @@ if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------
     # if NOT running on Google App Engine use SQLite or other DB
     # ---------------------------------------------------------------------
-    db = DAL(configuration.get('db.uri'),
-             pool_size=configuration.get('db.pool_size'),
-             migrate_enabled=configuration.get('db.migrate'),
-             check_reserved=['all'])
+    # db = DAL(configuration.get('mysql://root:Zecker.khiem95@localhost/simulator'),
+    #          pool_size=configuration.get('db.pool_size'),
+    #          migrate_enabled=configuration.get('db.migrate'),
+    #          check_reserved=['all'])
+    db = DAL("mysql://root:root@localhost/web2py2")
+
+    #create table members
+    db.define_table('members',
+                    Field('member_id', 'string'),
+                    Field('other_information', 'string'),
+                    Field('gmail', 'string'),
+                    primarykey=['member_id'])
+    #insert data
+    # db.members.insert(member_id='HS001',other_information='Xuat Sac',gmail = 'abc@gmail.com')
+    # db.members.insert(member_id='HS002', other_information='Xuat Sac', gmail='abc@gmail.com')
+    # db.members.insert(member_id='HS003', other_information='Xuat Sac', gmail='abc@gmail.com')
+
 else:
     # ---------------------------------------------------------------------
     # connect to Google BigTable (optional 'google:datastore://namespace')
@@ -54,7 +67,7 @@ else:
 # by default give a view/generic.extension to all actions from localhost
 # none otherwise. a pattern can be 'controller/function.extension'
 # -------------------------------------------------------------------------
-response.generic_patterns = [] 
+response.generic_patterns = []
 if request.is_local and not configuration.get('app.production'):
     response.generic_patterns.append('*')
 
@@ -111,17 +124,16 @@ auth.settings.registration_requires_verification = False
 auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 
-# -------------------------------------------------------------------------  
-# read more at http://dev.w3.org/html5/markup/meta.name.html               
+# -------------------------------------------------------------------------
+# read more at http://dev.w3.org/html5/markup/meta.name.html
 # -------------------------------------------------------------------------
 response.meta.author = configuration.get('app.author')
 response.meta.description = configuration.get('app.description')
 response.meta.keywords = configuration.get('app.keywords')
 response.meta.generator = configuration.get('app.generator')
-response.show_toolbar = configuration.get('app.toolbar')
 
 # -------------------------------------------------------------------------
-# your http://google.com/analytics id                                      
+# your http://google.com/analytics id
 # -------------------------------------------------------------------------
 response.google_analytics_id = configuration.get('google.analytics_id')
 
@@ -130,7 +142,8 @@ response.google_analytics_id = configuration.get('google.analytics_id')
 # -------------------------------------------------------------------------
 if configuration.get('scheduler.enabled'):
     from gluon.scheduler import Scheduler
-    scheduler = Scheduler(db, heartbeat=configuration.get('scheduler.heartbeat'))
+
+    scheduler = Scheduler(db, heartbeat=configuration.get('heartbeat'))
 
 # -------------------------------------------------------------------------
 # Define your tables below (or better in another model file) for example
@@ -153,3 +166,5 @@ if configuration.get('scheduler.enabled'):
 # after defining tables, uncomment below to enable auditing
 # -------------------------------------------------------------------------
 # auth.enable_record_versioning(db)
+
+
