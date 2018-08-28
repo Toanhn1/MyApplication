@@ -253,3 +253,9 @@
 127.0.0.1, 2018-08-28 13:42:43, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.044430
 127.0.0.1, 2018-08-28 13:43:08, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.041012
 127.0.0.1, 2018-08-28 13:43:41, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.032942
+127.0.0.1, 2018-08-28 13:53:58, GET, /, HTTP/1.1, 303, 15.018385
+127.0.0.1, 2018-08-28 13:53:58, GET, /welcome/default/index, HTTP/1.1, 200, 0.203158
+127.0.0.1, 2018-08-28 13:54:06, GET, /, HTTP/1.1, 303, 0.000459
+127.0.0.1, 2018-08-28 13:54:06, GET, /welcome/default/index, HTTP/1.1, 200, 0.027854
+127.0.0.1, 2018-08-28 13:54:12, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.190027
+127.0.0.1, 2018-08-28 13:54:55, GET, /FristSample/displayhelloword/index, HTTP/1.1, 200, 0.052718
