@@ -1,10 +1,6 @@
 {{extend 'layout.html'}}
-        <h2>List Of Orders</h2>
-<ul>
-    {{for row in list:}}
-    <li>
-        {{="%(order_id)s - %(user_id)s - %(ngay_mua)s- %(name)s- %(event_name)s- %(age)s"
-        "- %(phone)s- %(email)s %(cach_thanh_toan)s" % row}}
-    </li>
-    {{pass}}
-</ul>
+<h2>Welcome to festival in Da nang</h2>
+[ {{=A('Order', _href=URL('allorder'))}}]
+[ {{=A('Home', _href=URL('showhome'))}}]
+[ {{=A('Admin', _href=URL('admin'))}}]
+

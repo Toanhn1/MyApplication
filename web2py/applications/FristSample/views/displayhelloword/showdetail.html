@@ -1,0 +1,22 @@
+<h1>Order detail</h1>
+
+<table frame="box" rules="all">
+<colgroup width="200" span="5">
+<th><h2>ID</h2></th>
+<th><h2>Name Event</h2></th>
+<th><h2>Ngay Mua</h2></th>
+<th><h2>Dia Diem </h2></th>
+<th><h2>Thoi Gian</h2></th>
+<th><h2>Quan Huyen</h2></th>
+{{for order in list:}}
+    <tr>
+        <td>{{=order.user_id}}</td>
+        <td>{{=order.event_name}}</td>
+        <td>{{=order.diadiem_tochuc}}</td>
+        <td>{{=order.thoigian_tochuc}}</td>
+        <td>{{=order.quan_huyen_tochuc}}</td>
+    </tr>
+{{pass}}
+</table>
+[{{=A('Back', _href=URL('index'))}}]
+<br />

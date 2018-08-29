@@ -1,0 +1,22 @@
+<h1>List Of Order</h1>
+
+<table frame="box" rules="all">
+<colgroup width="200" span="5">
+<th><h2>ID</h2></th>
+<th><h2>User ID</h2></th>
+<th><h2>Ngay Mua</h2></th>
+<th><h2>Name</h2></th>
+<th><h2>View</h2></th>
+<th><h2>Del</h2></th>
+{{for order in list:}}
+    <tr>
+        <td>{{=(A(order.order_id, _href=URL('showdetail',args =order.order_id)))}}</td>
+        <td>{{=order.user_id}}</td>
+        <td>{{=order.ngay_mua}}</td>
+        <td>{{=order.name}}</td>
+        <td>{{=(A('view', _href=URL('showdetail',args =order.user_id)))}}</td>
+        <td>{{=(A('del', _href=URL('deleteorder',args =order.order_id)))}}</td>
+    </tr>
+{{pass}}
+</table>
+<br />
