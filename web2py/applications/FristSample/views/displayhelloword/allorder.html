@@ -10,7 +10,7 @@
 <th><h2>Del</h2></th>
 {{for order in list:}}
     <tr>
-        <td>{{=(A(order.order_id, _href=URL('showdetail',args =order.order_id)))}}</td>
+        <td>{{=order.order_id}}</td>
         <td>{{=order.user_id}}</td>
         <td>{{=order.ngay_mua}}</td>
         <td>{{=order.name}}</td>
