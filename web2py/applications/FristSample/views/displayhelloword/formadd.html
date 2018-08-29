@@ -1,0 +1,38 @@
+{{extend 'layout.html'}}
+<form action="{{=URL('addorder')}}" method=post>
+    Order ID:<br>
+<input type="text" name="orderId" required/>
+<br>
+User ID:<br>
+<input type="text" name="userId" required/>
+<br>
+ Ngay Mua:<br>
+<input type="date" name="ngayMua" required/>
+<br>
+Name:<br>
+<input type="text" name="name" required/>
+<br>
+    Event name:<br>
+<input type="text" name="eventName" required/>
+<br>
+Age:<br>
+<input type="text" name="age" required/>
+<br>
+ Phone:<br>
+<input type="text" name="phone" required/>
+<br>
+Email:<br>
+<input type="date" name="email" required/>
+<br>
+    Way to pay:<br>
+<input type="text" name="cachThanhToan" required/>
+<br>
+ Way to receive:<br>
+<input type="text" name="phuongThucNhan" required/>
+<br>
+Quan Huyen:<br>
+<input type="text" name="quanhuyen" required/>
+<br>
+<br><br>
+<input type="submit" value="ADD">
+</form>
