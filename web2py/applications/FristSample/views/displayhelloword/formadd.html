@@ -1,7 +1,7 @@
 {{extend 'layout.html'}}
 <form action="{{=URL('addorder')}}" method=post>
     Order ID:<br>
-<input type="text" name="orderId" required/>
+<input type="text" name="orderId" value="{{=a}}" required/>
 <br>
 User ID:<br>
 <input type="text" name="userId" required/>

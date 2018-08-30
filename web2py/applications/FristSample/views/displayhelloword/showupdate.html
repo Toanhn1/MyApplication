@@ -1,0 +1,41 @@
+{{extend 'layout.html'}}
+<form action="{{=URL('doupdate')}}" method=post>
+{{for order in showOrder:}}
+    Order ID:<br>
+    <input type="text" name="orderId" value="{{=order.order_id}}" required/>
+    <input value="{{=order.order_id}}" type="hidden" name="orderIdHiden" />
+    <br>
+    User ID:<br>
+    <input type="text" name="userId" value="{{=order.user_id}}" required/>
+    <br>
+     Ngay Mua:<br>
+    <input type="date" name="ngayMua" value="{{=order.ngay_mua}}"  required/>
+    <br>
+    Name:<br>
+    <input type="text" name="name" value="{{=order.name}}" required/>
+    <br>
+    Event name:<br>
+    <input type="text" name="eventName" value="{{=order.event_name}}" required/>
+    <br>
+    Age:<br>
+    <input type="text" name="age" value="{{=order.age}}" required/>
+    <br>
+    Phone:<br>
+    <input type="text" name="phone" value="{{=order.phone}}" required/>
+    <br>
+    Email:<br>
+    <input type="date" name="email" value="{{=order.email}}" required/>
+    <br>
+    Way to pay:<br>
+    <input type="text" name="cachThanhToan" value="{{=order.cach_thanh_toan}}" required/>
+    <br>
+    Way to receive:<br>
+    <input type="text" name="phuongThucNhan" value="{{=order.phuong_thuc_nhan}}" required/>
+    <br>
+    Quan Huyen:<br>
+    <input type="text" name="quanhuyen" value="{{=order.quan_huyen}}" required/>
+    <br>
+    <br><br>
+{{pass}}
+<input type="submit" value="Update">
+</form>
