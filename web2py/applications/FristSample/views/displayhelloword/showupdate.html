@@ -3,6 +3,7 @@
 {{for order in showOrder:}}
     Order ID:<br>
     <input type="text" name="orderId" value="{{=order.order_id}}" required/>
+    <p style="color: red">{{=request.vars['message']}} </p>
     <input value="{{=order.order_id}}" type="hidden" name="orderIdHiden" />
     <br>
     User ID:<br>
