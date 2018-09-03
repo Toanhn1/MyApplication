@@ -1,24 +1,41 @@
+<link href="/FristSample/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/FristSample/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="/FristSample/static/css/w3.css">
+<script type="text/javascript" src="/FristSample/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/FristSample/static/js/inputnum.js"></script>
 <h1>List Of Order</h1>
+<body>
+<div class="cointainer">
+<div class="col-md-12" style="margin-left:21px">
+	        <table class="table table-hover table-striped">
+	        <thead>
+			        	<th><h2>ID</h2></th>
+                        <th><h2>User ID</h2></th>
+                        <th><h2>Ngay Mua</h2></th>
+                        <th><h2>Name</h2></th>
+                        <th><h2>View</h2></th>
+                        <th><h2>Del</h2></th>
+                        <th><h2>Update</h2></th>
+			        </thead>
+			        <tbody>
+			        {{for order in list:}}
+			            <tr>
 
-<table frame="box" rules="all">
-<colgroup width="200" span="5">
-<th><h2>ID</h2></th>
-<th><h2>User ID</h2></th>
-<th><h2>Ngay Mua</h2></th>
-<th><h2>Name</h2></th>
-<th><h2>View</h2></th>
-<th><h2>Del</h2></th>
-<th><h2>Update</h2></th>
-{{for order in list:}}
-    <tr>
-        <td>{{=order.order_id}}</td>
-        <td>{{=order.user_id}}</td>
-        <td>{{=order.ngay_mua}}</td>
-        <td>{{=order.name}}</td>
-        <td>{{=(A('view', _href=URL('showdetail',args =order.user_id)))}}</td>
-        <td>{{=(A('del', _href=URL('deleteorder',args =order.order_id)))}}</td>
-        <td>{{=(A('Update', _href=URL('showupdate',args =order.order_id)))}}</td>
-    </tr>
-{{pass}}
-</table>
-<br />
+			            <td>{{=order.order_id}}</td>
+			            <td>{{=order.user_id}}</td>
+			            <td>{{=order.ngay_mua}}</td>
+			            <td>{{=order.name}}</td>
+			            <td>{{=(A('view', _href=URL('showdetail',args =order.user_id)))}}</td>
+                        <td>{{=(A('del', _href=URL('deleteorder',args =order.order_id)))}}</td>
+                        <td>{{=(A('Update', _href=URL('showupdate',args =order.order_id)))}}</td>
+			        </tr>
+			        {{pass}}
+			        </tbody>
+	        </table>
+</div>
+    <div class="col-md-9"></div>
+     <a href={{=URL(vars={'page':int(request.vars.page)-1})}}>Previous</a> |
+     <a href={{=URL(vars={'page':int(request.vars.page)+1})}}>Next</a>
+    </div>
+</div>
+</body>

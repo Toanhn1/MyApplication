@@ -1,42 +1,92 @@
-{{extend 'layout.html'}}
-<form action="{{=URL('doupdate')}}" method=post>
-{{for order in showOrder:}}
-    Order ID:<br>
-    <input type="text" name="orderId" value="{{=order.order_id}}" required/>
-    <p style="color: red">{{=request.vars['message']}} </p>
-    <input value="{{=order.order_id}}" type="hidden" name="orderIdHiden" />
-    <br>
-    User ID:<br>
-    <input type="text" name="userId" value="{{=order.user_id}}" required/>
-    <br>
-     Ngay Mua:<br>
-    <input type="date" name="ngayMua" value="{{=order.ngay_mua}}"  required/>
-    <br>
-    Name:<br>
-    <input type="text" name="name" value="{{=order.name}}" required/>
-    <br>
-    Event name:<br>
-    <input type="text" name="eventName" value="{{=order.event_name}}" required/>
-    <br>
-    Age:<br>
-    <input type="text" name="age" value="{{=order.age}}" required/>
-    <br>
-    Phone:<br>
-    <input type="text" name="phone" value="{{=order.phone}}" required/>
-    <br>
-    Email:<br>
-    <input type="date" name="email" value="{{=order.email}}" required/>
-    <br>
-    Way to pay:<br>
-    <input type="text" name="cachThanhToan" value="{{=order.cach_thanh_toan}}" required/>
-    <br>
-    Way to receive:<br>
-    <input type="text" name="phuongThucNhan" value="{{=order.phuong_thuc_nhan}}" required/>
-    <br>
-    Quan Huyen:<br>
-    <input type="text" name="quanhuyen" value="{{=order.quan_huyen}}" required/>
-    <br>
-    <br><br>
-{{pass}}
-<input type="submit" value="Update">
-</form>
+<link href="/FristSample/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/FristSample/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="/FristSample/static/css/w3.css">
+<script type="text/javascript" src="/FristSample/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/FristSample/static/js/inputnum.js"></script>
+<body>
+	<div class="cointainer">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<p class="text-center"  class="col-sm-7">
+					<h3 style="  padding-left: 198px; padding-bottom: 29px;">Adding Order</h3>
+				</p>
+				<form action="{{=URL('doupdate')}}" styleClass="form-horizontal" method="post">
+                 {{for order in showOrder:}}
+					<div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Order ID <b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <label styleClass="control-label" style="margin-left: 16px">{{=order.order_id}}</label>
+                            <p style="color: red">{{=request.vars['message']}}
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">User ID: <b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="userId" styleClass="form-control" style="margin-left: 16px" value="{{=order.user_id}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Ngay Mua: <b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="ngayMua" styleClass="form-control" style="margin-left: 16px" value="{{=order.ngay_mua}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Name: <b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="name" styleClass="form-control" style="margin-left: 16px" value="{{=order.name}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Event name :<b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="eventName" styleClass="form-control" style="margin-left: 16px" value="{{=order.event_name}}" required/>
+						</div>
+					</div>
+                      <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Age :<b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="age" styleClass="form-control" style="margin-left: 16px" value="{{=order.age}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Phone: <b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="phone" styleClass="form-control" style="margin-left: 16px" value="{{=order.phone}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Email: <b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="email" styleClass="form-control" style="margin-left: 16px" value="{{=order.email}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Way to pay:<b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="cachThanhToan" styleClass="form-control" style="margin-left: 16px" value="{{=order.cach_thanh_toan}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Way to receive:<b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="phuongThucNhan" styleClass="form-control" style="margin-left: 16px" value="{{=order.phuong_thuc_nhan}}" required/>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Quan huyen: <b style = "color:red">*</b></label>
+						<div class="col-sm-7">
+                            <input type="text" name="quanhuyen" styleClass="form-control" style="margin-left: 16px" value="{{=order.quan_huyen}}"  required/>
+						</div>
+					</div>
+					<div class="text-center">
+                        <input type="submit" styleClass="btn " style = "background-color: #00BFFF;color:white;margin-left: 260px; margin-top: 27px;"  value="Update">
+					</div>
+                 {{pass}}
+				</form>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,30 @@
+body {
+	
+}
+.btn-danger {
+    color: #fff;
+    background-color:#00BFFF;
+   
+}
+.abc {
+  
+    padding-top: 45px;
+    padding-right: 28px;
+    padding-bottom: 14px;
+    padding-left:7px;
+	
+}
+.abcques {
+    background-color: #d9d9d9;
+    padding-top: 45px;
+    padding-bottom: 14px;
+    padding-left:7px;
+	
+}
+.colorforlist {
+	background-color: #e46c0a;
+    padding-top: 45px;
+    padding-right: 28px;
+    padding-bottom: 14px;
+    padding-left:7px;
+}

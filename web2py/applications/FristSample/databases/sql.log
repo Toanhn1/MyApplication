@@ -204,3 +204,114 @@ CREATE TABLE `order_detail`(
     `quan_huyen_tochuc` VARCHAR(512),
     PRIMARY KEY(`event_id`, `user_id`))  ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2018-09-03T20:01:08.112113
+CREATE TABLE `o`(
+    `order_id` VARCHAR(512) NOT NULL,
+    `user_id` VARCHAR(512),
+    `ngay_mua` DATE,
+    `name` VARCHAR(512),
+    `event_name` VARCHAR(512),
+    `age` INTEGER,
+    `phone` VARCHAR(512),
+    `email` VARCHAR(512),
+    `cach_thanh_toan` VARCHAR(512),
+    `phuong_thuc_nhan` VARCHAR(512),
+    `quan_huyen` VARCHAR(512),
+    PRIMARY KEY(`order_id`))  ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:17:30.482567
+ALTER TABLE `orders` ADD `ngay_mua__tmp` VARCHAR(512);
+timestamp: 2018-09-03T20:17:56.053174
+ALTER TABLE `orders` ADD `ngay_mua__tmp` VARCHAR(512);
+timestamp: 2018-09-03T20:18:51.501936
+ALTER TABLE `orders` ADD `ngay_mua__tmp` VARCHAR(512);
+timestamp: 2018-09-03T20:19:48.078495
+ALTER TABLE `orders` ADD `ngay_mua__tmp` VARCHAR(512);
+timestamp: 2018-09-03T20:20:23.485046
+ALTER TABLE `orders` ADD `ngay_mua__tmp` VARCHAR(512);
+timestamp: 2018-09-03T20:21:47.654262
+CREATE TABLE `orders`(
+    `order_id` VARCHAR(512) NOT NULL,
+    `user_id` VARCHAR(512),
+    `ngay_mua` VARCHAR(512),
+    `name` VARCHAR(512),
+    `event_name` VARCHAR(512),
+    `age` INTEGER,
+    `phone` VARCHAR(512),
+    `email` VARCHAR(512),
+    `cach_thanh_toan` VARCHAR(512),
+    `phuong_thuc_nhan` VARCHAR(512),
+    `quan_huyen` VARCHAR(512),
+    PRIMARY KEY(`order_id`))  ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:21:47.671952
+CREATE TABLE `auth_user`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `first_name` VARCHAR(128),
+    `last_name` VARCHAR(128),
+    `email` VARCHAR(512),
+    `password` VARCHAR(512),
+    `registration_key` VARCHAR(512),
+    `reset_password_key` VARCHAR(512),
+    `registration_id` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:21:47.686547
+CREATE TABLE `auth_group`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `role` VARCHAR(512),
+    `description` LONGTEXT,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:21:47.701251
+CREATE TABLE `auth_membership`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `group_id` INT  , INDEX `group_id__idx` (`group_id`), FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE CASCADE,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:21:47.716386
+CREATE TABLE `auth_permission`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `group_id` INT  , INDEX `group_id__idx` (`group_id`), FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`) ON DELETE CASCADE,
+    `name` VARCHAR(512),
+    `table_name` VARCHAR(512),
+    `record_id` INTEGER,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:21:47.735064
+CREATE TABLE `auth_event`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `time_stamp` DATETIME,
+    `client_ip` VARCHAR(512),
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `origin` VARCHAR(512),
+    `description` LONGTEXT,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:21:47.749345
+CREATE TABLE `auth_cas`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `user_id` INT  , INDEX `user_id__idx` (`user_id`), FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE CASCADE,
+    `created_on` DATETIME,
+    `service` VARCHAR(512),
+    `ticket` VARCHAR(512),
+    `renew` CHAR(1),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
+timestamp: 2018-09-03T20:22:17.499111
+CREATE TABLE `order_detail`(
+    `event_id` VARCHAR(512) NOT NULL,
+    `user_id` VARCHAR(512) NOT NULL,
+    `event_name` VARCHAR(512),
+    `diadiem_tochuc` VARCHAR(512),
+    `thoigian_tochuc` DATETIME,
+    `quan_huyen_tochuc` VARCHAR(512),
+    PRIMARY KEY(`event_id`, `user_id`))  ENGINE=InnoDB CHARACTER SET utf8;
+success!

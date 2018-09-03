@@ -34,13 +34,13 @@ if not request.env.web2py_runtime_gae:
     #          pool_size=configuration.get('db.pool_size'),
     #          migrate_enabled=configuration.get('db.migrate'),
     #          check_reserved=['all'])
-    db = DAL("mysql://root:root@localhost/web2py2")
+    db = DAL("mysql://root:root@localhost/web2py")
 
     # Create table
     db.define_table('orders',
                     Field('order_id', 'string',required=True),
                     Field('user_id', 'string'),
-                    Field('ngay_mua', 'date'),
+                    Field('ngay_mua', 'string'),
                     Field('name', 'string'),
                     Field('event_name', 'string'),
                     Field('age', 'integer'),
@@ -61,16 +61,20 @@ if not request.env.web2py_runtime_gae:
                     Field('quan_huyen_tochuc', 'string'),
                     primarykey=['event_id','user_id'])
 
+    if not db(db.orders).count():
+        from gluon.contrib.populate import populate
+        populate(db.orders,25)
+
     #insert database
-    # db.orders.insert(order_id='HD002', user_id='KH002', ngay_mua='2018/05/08', name='Nguyen Van B',
+    # db.orders.insert(order_id='HD0123', user_id='KH002', ngay_mua='2018/05/08', name='Nguyen Van B',
     #                        event_name='Phao Hoa',
     #                        age=26, phone='01234569856', email='Bnv@gmail.com', cach_thanh_toan='Qua ATM',
     #                        phuong_thuc_nhan="Truc Tiep", quan_huyen='Hai Chau')
-    # db.orders.insert(order_id='HD001', user_id='KH003', ngay_mua='2018/03/08', name='Nguyen Van C',
+    # db.orders.insert(order_id='HD345', user_id='KH003', ngay_mua='2018/03/08', name='Nguyen Van C',
     #                        event_name='Phao Hoa', age=23,
     #                        phone='01234569456', email='Cnv@gmail.com', cach_thanh_toan='Qua ATM',
     #                        phuong_thuc_nhan="Truc Tiep", quan_huyen='Lien Chieu')
-    # db.orders.insert(order_id='HD003', user_id='KH004', ngay_mua='2018/02/08', name='Nguyen Van D',
+    # db.orders.insert(order_id='H545453', user_id='KH004', ngay_mua='2018/02/08', name='Nguyen Van D',
     #                        event_name='Phao Hoa', age=24,
     #                        phone='09234569876', email='Dnv@gmail.com', cach_thanh_toan='Qua ATM',
     #                        phuong_thuc_nhan="Truc Tiep", quan_huyen='Lien Chieu 2')
