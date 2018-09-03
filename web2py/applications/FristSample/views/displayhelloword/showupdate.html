@@ -9,7 +9,7 @@
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<p class="text-center"  class="col-sm-7">
-					<h3 style="  padding-left: 198px; padding-bottom: 29px;">Adding Order</h3>
+					<h3 style="  padding-left: 198px; padding-bottom: 29px;">Update Order</h3>
 				</p>
 				<form action="{{=URL('doupdate')}}" styleClass="form-horizontal" method="post">
                  {{for order in showOrder:}}
@@ -17,7 +17,7 @@
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Order ID <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
                             <label styleClass="control-label" style="margin-left: 16px">{{=order.order_id}}</label>
-                            <p style="color: red">{{=request.vars['message']}}
+                                <input value="{{=order.order_id}}" type="hidden" name="orderIdHiden" />
 						</div>
 					</div>
                     <div class="form-group">
@@ -30,6 +30,7 @@
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Ngay Mua: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
                             <input type="text" name="ngayMua" styleClass="form-control" style="margin-left: 16px" value="{{=order.ngay_mua}}" required/>
+                            <p style="color: red">{{=request.vars.message_date}}
 						</div>
 					</div>
                     <div class="form-group">
@@ -48,6 +49,7 @@
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Age :<b style = "color:red">*</b></label>
 						<div class="col-sm-7">
                             <input type="text" name="age" styleClass="form-control" style="margin-left: 16px" value="{{=order.age}}" required/>
+                            <p style="color: red">{{=request.vars.message_age}}
 						</div>
 					</div>
                     <div class="form-group">
@@ -60,6 +62,7 @@
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Email: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
                             <input type="text" name="email" styleClass="form-control" style="margin-left: 16px" value="{{=order.email}}" required/>
+                            <p style="color: red">{{=request.vars.message_email}}
 						</div>
 					</div>
                     <div class="form-group">

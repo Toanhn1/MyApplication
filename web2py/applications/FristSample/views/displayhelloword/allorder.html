@@ -20,14 +20,13 @@
 			        <tbody>
 			        {{for order in list:}}
 			            <tr>
-
 			            <td>{{=order.order_id}}</td>
 			            <td>{{=order.user_id}}</td>
 			            <td>{{=order.ngay_mua}}</td>
 			            <td>{{=order.name}}</td>
 			            <td>{{=(A('view', _href=URL('showdetail',args =order.user_id)))}}</td>
                         <td>{{=(A('del', _href=URL('deleteorder',args =order.order_id)))}}</td>
-                        <td>{{=(A('Update', _href=URL('showupdate',args =order.order_id)))}}</td>
+                        <td>{{=(A('Update', _href=URL('showupdate',vars ={'id':order.order_id,'message_date':'','message_age':'','message_email':''})))}}</td>
 			        </tr>
 			        {{pass}}
 			        </tbody>
