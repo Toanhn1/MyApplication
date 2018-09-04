@@ -315,3 +315,12 @@ CREATE TABLE `order_detail`(
     `quan_huyen_tochuc` VARCHAR(512),
     PRIMARY KEY(`event_id`, `user_id`))  ENGINE=InnoDB CHARACTER SET utf8;
 success!
+timestamp: 2018-09-04T14:47:32.835907
+CREATE TABLE `contact`(
+    `id` INT AUTO_INCREMENT NOT NULL,
+    `name` VARCHAR(512),
+    `email` VARCHAR(512),
+    `phone` VARCHAR(512),
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB CHARACTER SET utf8;
+success!
