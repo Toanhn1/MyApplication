@@ -1,7 +1,8 @@
 #sample index page
-from TestValidate import Validate
-from StringMessage import Message as mess
+from StringValidator import Validate
+from StringMessages import Message as mess
 from contact_orders import Connect
+
 validate = Validate()
 connect = Connect()
 def index():
@@ -140,7 +141,7 @@ def doupdate():
              validate.isNotEmpty(request.vars.cachThanhToan) == False,validate.isNotEmpty(request.vars.phuongThucNhan) == False,
              validate.isNotEmpty(request.vars.quanhuyen) == False,not validate.isDate(request.vars.ngayMua),
              not validate.isAlnumric(request.vars.age)]):
-        return redirect(URL("showupdate", vars=list_check))
+        return redirect(URL("", vars=list_check))
     else:
         connect.update_orders(request.vars.orderIdHiden,request.vars.userId,request.vars.ngayMua,
                           request.vars.name,request.vars.eventName,request.vars.age,request.vars.phone
