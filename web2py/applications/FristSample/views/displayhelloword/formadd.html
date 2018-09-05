@@ -15,71 +15,78 @@
 					<div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Order ID <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="orderId" styleClass="form-control" style="margin-left: 16px"  required/>
-                             <p style="color: red">{{=request.vars['message']}} </p>
+                            <input type="text" name="orderId" styleClass="form-control" style="margin-left: 16px" value="{{=request.vars.order_id}}" />
+                             <p style="color: red">{{=request.vars['message_order']}} </p>
 						</div>
 				</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">User ID: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="userId" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="userId" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.user_id}}"/>
+                            <p style="color: red">{{=request.vars['message_user']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Ngay Mua: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="ngayMua" styleClass="form-control" style="margin-left: 16px"  required/>
-                            <p style="color: red">{{=request.vars['message_date']}} </p>
+                            <input type="text" name="ngayMua" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.ngaymua}}"/>
+                            <p style="color: red">{{=request.vars['message_ngaymua']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Name: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="name" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="name" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.name}}"/>
+                            <p style="color: red">{{=request.vars['message_name']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Event Name: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="eventName" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="eventName" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.eventname}}"/>
+                            <p style="color: red">{{=request.vars['message_eventname']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Age :<b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="age" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="age" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.age}}"/>
                             <p style="color: red">{{=request.vars['message_age']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Phone: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="phone" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="phone" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.phone}}"/>
+                            <p style="color: red">{{=request.vars['message_phone']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Email: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="email" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="email" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.email}}"/>
                              <p style="color: red">{{=request.vars['message_email']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Way to pay:<b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="cachThanhToan" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="cachThanhToan" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.cachthanhtoan}}"/>
+                            <p style="color: red">{{=request.vars['message_cachthanhtoan']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Way to receive:<b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="phuongThucNhan" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="phuongThucNhan" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.phuongthucnhan}}"/>
+                            <p style="color: red">{{=request.vars['message_phuongthucnhan']}} </p>
 						</div>
 					</div>
                     <div class="form-group">
 						<label  class="col-sm-5 control-label" style = "padding-right:42px;margin-left: -20px">Quan huyen: <b style = "color:red">*</b></label>
 						<div class="col-sm-7">
-                            <input type="text" name="quanhuyen" styleClass="form-control" style="margin-left: 16px"  required/>
+                            <input type="text" name="quanhuyen" styleClass="form-control" style="margin-left: 16px"  value="{{=request.vars.quanhuyen}}"/>
+                            <p style="color: red">{{=request.vars['message_quanhuyen']}} </p>
 						</div>
 					</div>
 					<div class="text-center">

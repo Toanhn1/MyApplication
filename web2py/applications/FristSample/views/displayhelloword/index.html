@@ -2,6 +2,11 @@
 <h2>Welcome to festival in Da nang</h2>
 [ {{=A('Order', _href=URL('allorder'))}}]
 [ {{=A('Home', _href=URL('showhome'))}}]
-[ {{=A('Add order', _href=URL('formadd',vars= dict(message_email='', message='', message_age='',message_date = '')))}}]
+[ {{=A('Add order', _href=URL('formadd',vars= {'order_id':'','user_id':'','ngaymua':'','name':'','eventname':'','age':'',
+                                                'phone':'','email':'','cachthanhtoan':'','phuongthucnhan':'','quanhuyen':''
+                                                ,'message_order': '','message_user': '','message_ngaymua': '','message_name': '',
+                                                'message_eventname': '','message_age': '','message_phone': '',
+                                                'message_email': '','message_cachthanhtoan': '','message_phuongthucnhan': '',
+                                                'message_quanhuyen': ''}))}}]
 [ {{=A('Admin', _href=URL('admin'))}}]
 

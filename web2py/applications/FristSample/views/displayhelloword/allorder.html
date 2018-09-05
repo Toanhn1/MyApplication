@@ -26,7 +26,17 @@
 			            <td>{{=order.name}}</td>
 			            <td>{{=(A('view', _href=URL('showdetail',args =order.user_id)))}}</td>
                         <td>{{=(A('del', _href=URL('deleteorder',args =order.order_id)))}}</td>
-                        <td>{{=(A('Update', _href=URL('showupdate',vars ={'id':order.order_id,'message_date':'','message_age':'','message_email':''})))}}</td>
+                        <td>{{=(A('Update', _href=URL('showupdate',vars ={'order_id':order.order_id,'user_id':order.user_id,
+                                                                            'ngaymua':order.ngay_mua,'name':order.name,
+                                                                            'eventname':order.event_name,'age':order.age,
+                                                                            'phone':order.phone,'email':order.email,
+                                                                            'cachthanhtoan':order.cach_thanh_toan,
+                                                                            'phuongthucnhan':order.phuong_thuc_nhan,
+                                                                            'quanhuyen':order.quan_huyen,
+                                                        'message_user': '','message_ngaymua': '','message_name': '',
+                                                'message_eventname': '','message_age': '','message_phone': '',
+                                                'message_email': '','message_cachthanhtoan': '','message_phuongthucnhan': '',
+                                                'message_quanhuyen': ''})))}}</td>
 			        </tr>
 			        {{pass}}
 			        </tbody>

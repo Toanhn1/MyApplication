@@ -3,3 +3,4 @@ class Message:
     error_age = "Please input right age!"
     error_email = "Please input righ email:sampme@gmail.com"
     error_key = "Duplicate entry for key PRIMARY"
+    error_empty = "This feild is required!"
