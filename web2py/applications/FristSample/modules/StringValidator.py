@@ -1,5 +1,5 @@
 import re
-from Common import Regrex as regex
+from common_var import Regrex as regex
 class Validate(object):
     def __init__(self):
         return

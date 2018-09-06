@@ -56,9 +56,6 @@ class Connect(object):
                                                     email=email,cach_thanh_toan=cach_thanh_toan,
                                                     phuong_thuc_nhan=phuong_thuc_nhan,quan_huyen=quan_huyen)
 
-    def select_one_order(self,orderId):
-        return self.db(self.db.orders.order_id == orderId).select(self.db.orders.ALL)
-
     def select_order_show(self,userId):
         return self.db(self.db.order_detail.user_id.like(userId)).select()
 
