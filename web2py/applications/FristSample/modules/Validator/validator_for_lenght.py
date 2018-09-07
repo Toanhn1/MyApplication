@@ -1,21 +1,23 @@
-import re
-from common_var import Regrex as regex
-class Validate(object):
+
+from base_module import BaseInterface
+class Validate(BaseInterface):
     def __init__(self):
-        return
-    def isDate(self,date):
-        check = re.compile(regex.regrex_day)
-        return check.match(date)
+        BaseInterface.__init__(self)
 
-    def isAlnumric(self,age):
-        return age.isnumeric()
+    def is_max_lenght_of_order(self,order):
+        return len(order)
 
-    def isEmail(self,email):
-        check = re.compile(regex.regrex_email)
-        return check.match(email)
+    def is_max_lenght_of_user(self,user):
+        return len(user)
 
-    def isNotEmpty(self,params):
-        return bool(params and params.strip())
+    def is_max_lenght_of_str(self,str):
+        return len(str)
+
+    def is_right_age(self,age):
+        if (int(age) > 1 and int(age) <100):
+            return True
+        else :
+            return False
 
     def list_vars(self,order_id, user_id, ngaymua, name, eventname, age, phone, email, cachthanhtoan, phuongthucnhan,
                   quanhuyen):

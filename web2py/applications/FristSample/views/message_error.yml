@@ -1,0 +1,8 @@
+errors :
+  messsage.ID001.Key : 'Duplicate entry for key PRIMARY'
+  messsage.ID002.Empty : 'This feild is required!'
+  messsage.ID003.Date : 'Please input DD-MM-YYYY'
+  messsage.ID004.Age : 'Please input right age!'
+  messsage.ID005.Email : 'Please input righ email:sampme@gmail.com'
+  messsage.ID006.Lenght : 'Can not input the characters greater than'
+  messsage.ID007.Range : 'Please input age from 1 to 100'

@@ -1,10 +1,10 @@
 #sample index page
-from StringValidator import Validate
-from string_error_message import Message as mess
-from contact_orders import Connect
-from attribute_list import Common as idx
-from common_var import Regrex as regex
-from screen_id import ScreenId as screen
+from applications.FristSample.modules.Validator.validator_for_lenght import Validate
+from applications.FristSample.modules.Helper.load_id_message import MessageID as message_id
+from applications.FristSample.modules.Connect.contact_orders import Connect
+from applications.FristSample.common.attribute_list import Common as idx
+from applications.FristSample.common.common_var import Regrex as regex
+from applications.FristSample.common.screen_id import ScreenId as screen
 
 validate = Validate()
 connect = Connect()
@@ -31,88 +31,88 @@ def addorder():
 
     if validate.isNotEmpty(request.vars.orderId) == False:
         check = True
-        list_check[idx.message_order] = mess.error_empty
-    elif len(request.vars.orderId) > regex.max_lenhgt_id:
+        list_check[idx.message_order] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_order(request.vars.orderId) > regex.max_lenhgt_id:
         check = True
-        list_check[idx.message_order] = mess.error_lenght + str(regex.max_lenhgt_id)
+        list_check[idx.message_order] = message_id.message_error_leght + str(regex.max_lenhgt_id)
     else:
         for row in listOrderId:
             if order in row.order_id:
                 check = True
-                list_check[idx.message_order] = mess.error_key
+                list_check[idx.message_order] = message_id.message_error_key
 
     if validate.isNotEmpty(request.vars.userId) == False:
         check = True
-        list_check[idx.message_user] = mess.error_empty
-    elif len(request.vars.userId) > regex.max_lenhgt_id:
+        list_check[idx.message_user] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_user(request.vars.userId) > regex.max_lenhgt_id:
         check = True
-        list_check[idx.message_user] = mess.error_lenght + str(regex.max_lenhgt_id)
+        list_check[idx.message_user] = message_id.message_error_leght + str(regex.max_lenhgt_id)
 
     if validate.isNotEmpty(request.vars.ngayMua) == False:
         check = True
-        list_check[idx.message_ngaymua] = mess.error_empty
+        list_check[idx.message_ngaymua] = message_id.message_error_empty
     elif not validate.isDate(request.vars.ngayMua):
         check = True
-        list_check[idx.message_ngaymua] = mess.error_date
+        list_check[idx.message_ngaymua] = message_id.message_error_format_date
 
     if validate.isNotEmpty(request.vars.name) == False:
         check = True
-        list_check[idx.message_name] = mess.error_empty
+        list_check[idx.message_name] = message_id.message_error_empty
 
     if validate.isNotEmpty(request.vars.eventName) == False:
-        list_check[idx.message_eventname] = mess.error_empty
+        list_check[idx.message_eventname] = message_id.message_error_empty
         check = True
-    elif len(request.vars.eventName) > regex.max_lenght_str :
+    elif validate.is_max_lenght_of_str(request.vars.eventName) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_eventname] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_eventname] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.age) == False:
-        list_check[idx.message_age] = mess.error_empty
+        list_check[idx.message_age] = message_id.message_error_empty
         check = True
     elif not validate.isAlnumric(request.vars.age):
-        list_check[idx.message_age] = mess.error_age
+        list_check[idx.message_age] = message_id.message_error_age
         check = True
-    elif int(request.vars.age) < regex.min_age and int(request.vars.age) >regex.max_age:
+    elif validate.is_right_age(request.vars.age) == False:
         check = True
-        list_check[idx.message_age] = mess.error_range_age
+        list_check[idx.message_age] = message_id.message_error_range_age
 
     if validate.isNotEmpty(request.vars.phone) == False:
-        list_check[idx.message_phone] = mess.error_empty
+        list_check[idx.message_phone] = message_id.message_error_empty
         check = True
-    elif len(request.vars.phone) > regex.max_number_phone:
+    elif validate.is_max_lenght_of_str(request.vars.phone) > regex.max_number_phone:
         check = True
-        list_check[idx.message_phone] = mess.error_lenght + str(regex.max_number_phone)
+        list_check[idx.message_phone] = message_id.message_error_leght + str(regex.max_number_phone)
 
     if validate.isNotEmpty(request.vars.email) == False:
         check = True
-        list_check[idx.message_email] = mess.error_empty
+        list_check[idx.message_email] = message_id.message_error_empty
     elif not validate.isEmail(request.vars.email):
         check = True
-        list_check[idx.message_email] = mess.error_email
-    elif len(request.vars.email) > regex.max_lenght_str :
+        list_check[idx.message_email] = message_id.message_error_email
+    elif validate.is_max_lenght_of_str(request.vars.email) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_email] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_email] = message_id.message_error_leght+ str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.cachThanhToan) == False:
         check = True
-        list_check[idx.message_cachthanhtoan] = mess.error_empty
-    elif len(request.vars.cachThanhToan) > regex.max_lenght_str :
+        list_check[idx.message_cachthanhtoan] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_str(request.vars.cachThanhToan) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_cachthanhtoan] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_cachthanhtoan] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.phuongThucNhan) == False:
         check = True
-        list_check[idx.message_phuongthucnhan] = mess.error_empty
-    elif len(request.vars.phuongThucNhan) > regex.max_lenght_str :
+        list_check[idx.message_phuongthucnhan] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_str(request.vars.phuongThucNhan) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_phuongthucnhan] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_phuongthucnhan] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.quanhuyen) == False:
         check = True
-        list_check[idx.message_quanhuyen] = mess.error_empty
-    elif len(request.vars.quanhuyen) > regex.max_lenght_str :
+        list_check[idx.message_quanhuyen] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_str(request.vars.quanhuyen) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_quanhuyen] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_quanhuyen] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if check == True:
         return redirect(URL(screen.form_add, vars=list_check))
@@ -139,76 +139,76 @@ def doupdate():
 
     if validate.isNotEmpty(request.vars.userId) == False:
         check = True
-        list_check[idx.message_user] = mess.error_empty
-    elif len(request.vars.userId) > regex.max_lenhgt_id:
+        list_check[idx.message_user] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_user(request.vars.userId) > regex.max_lenhgt_id:
         check = True
-        list_check[idx.message_user] = mess.error_lenght + str(regex.max_lenhgt_id)
+        list_check[idx.message_user] = message_id.message_error_leght + str(regex.max_lenhgt_id)
 
     if validate.isNotEmpty(request.vars.ngayMua) == False:
         check = True
-        list_check[idx.message_ngaymua] = mess.error_empty
+        list_check[idx.message_ngaymua] = message_id.message_error_empty
     elif not validate.isDate(request.vars.ngayMua):
         check = True
-        list_check[idx.message_ngaymua] = mess.error_date
+        list_check[idx.message_ngaymua] = message_id.message_error_format_date
 
     if validate.isNotEmpty(request.vars.name) == False:
         check = True
-        list_check[idx.message_name] = mess.error_empty
+        list_check[idx.message_name] = message_id.message_error_empty
 
     if validate.isNotEmpty(request.vars.eventName) == False:
-        list_check[idx.message_eventname] = mess.error_empty
+        list_check[idx.message_eventname] = message_id.message_error_empty
         check = True
-    elif len(request.vars.eventName) > regex.max_lenght_str :
+    elif validate.is_max_lenght_of_str(request.vars.eventName) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_eventname] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_eventname] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.age) == False:
-        list_check[idx.message_age] = mess.error_empty
+        list_check[idx.message_age] = message_id.message_error_empty
         check = True
     elif not validate.isAlnumric(request.vars.age):
-        list_check[idx.message_age] = mess.error_age
+        list_check[idx.message_age] = message_id.message_error_age
         check = True
-    elif int(request.vars.age) < regex.min_age and int(request.vars.age) >regex.max_age:
+    elif validate.is_right_age(request.vars.age) == False:
         check = True
-        list_check[idx.message_age] = mess.error_range_age
+        list_check[idx.message_age] = message_id.message_error_range_age
 
     if validate.isNotEmpty(request.vars.phone) == False:
-        list_check[idx.message_phone] = mess.error_empty
+        list_check[idx.message_phone] = message_id.message_error_empty
         check = True
-    elif len(request.vars.phone) > regex.max_number_phone:
+    elif validate.is_max_lenght_of_str(request.vars.phone) > regex.max_number_phone:
         check = True
-        list_check[idx.message_phone] = mess.error_lenght + str(regex.max_number_phone)
+        list_check[idx.message_phone] = message_id.message_error_leght + str(regex.max_number_phone)
 
     if validate.isNotEmpty(request.vars.email) == False:
         check = True
-        list_check[idx.message_email] = mess.error_empty
+        list_check[idx.message_email] = message_id.message_error_empty
     elif not validate.isEmail(request.vars.email):
         check = True
-        list_check[idx.message_email] = mess.error_email
-    elif len(request.vars.email) > regex.max_lenght_str :
+        list_check[idx.message_email] = message_id.message_error_email
+    elif validate.is_max_lenght_of_str(request.vars.email) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_email] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_email] = message_id.message_error_leght+ str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.cachThanhToan) == False:
         check = True
-        list_check[idx.message_cachthanhtoan] = mess.error_empty
-    elif len(request.vars.cachThanhToan) > regex.max_lenght_str :
+        list_check[idx.message_cachthanhtoan] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_str(request.vars.cachThanhToan) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_cachthanhtoan] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_cachthanhtoan] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.phuongThucNhan) == False:
         check = True
-        list_check[idx.message_phuongthucnhan] = mess.error_empty
-    elif len(request.vars.phuongThucNhan) > regex.max_lenght_str :
+        list_check[idx.message_phuongthucnhan] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_str(request.vars.phuongThucNhan) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_phuongthucnhan] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_phuongthucnhan] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if validate.isNotEmpty(request.vars.quanhuyen) == False:
         check = True
-        list_check[idx.message_quanhuyen] = mess.error_empty
-    elif len(request.vars.quanhuyen) > regex.max_lenght_str :
+        list_check[idx.message_quanhuyen] = message_id.message_error_empty
+    elif validate.is_max_lenght_of_str(request.vars.quanhuyen) > regex.max_lenght_str :
         check = True
-        list_check[idx.message_quanhuyen] = mess.error_lenght + str(regex.max_lenght_str)
+        list_check[idx.message_quanhuyen] = message_id.message_error_leght + str(regex.max_lenght_str)
 
     if check == True:
         return redirect(URL(screen.show_update, vars=list_check))
@@ -228,7 +228,7 @@ def deleteorder():
         connect.delete_order(orderId)
         return dict(idDel=orderId)
     else:
-        return redirect(URL("error"))
+        return redirect(URL(screen.error))
 
 def formadd():
     return dict()
